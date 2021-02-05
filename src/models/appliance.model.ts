@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from "mongoose";
 
 // export enum ApplianceType {
 //   oven = 'oven',
@@ -6,12 +6,11 @@ import mongoose, { Schema, Document } from 'mongoose';
 //   undisclosed = 'undisclosed'
 // }
 
-
 export interface IAppliance extends Document {
   id: string;
   powerState: boolean;
   deviceName: string;
-//   type?: ApplianceType;
+  //   type?: ApplianceType;
 }
 
 const ApplianceSchema: Schema = new Schema({
@@ -21,4 +20,4 @@ const ApplianceSchema: Schema = new Schema({
 });
 
 // Export the model and return your IUser interface
-export default mongoose.model<IAppliance>('Appliance', ApplianceSchema);
+export default mongoose.model<IAppliance>("Appliance", ApplianceSchema);
