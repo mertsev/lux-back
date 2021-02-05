@@ -1,11 +1,11 @@
-import Appliance, { IAppliance } from '../models/appliance.model';
-import { CreateQuery } from 'mongoose';
+import Appliance, { IAppliance } from "../models/appliance.model";
+import { CreateQuery } from "mongoose";
 
 async function CreateAppliance({
-    id,
-    powerState,
-    deviceName,
-}: CreateQuery<IAppliance>): Promise<IAppliance|void> {
+  id,
+  powerState,
+  deviceName,
+}: CreateQuery<IAppliance>): Promise<IAppliance | void> {
   return Appliance.create({
     id,
     powerState,
@@ -20,5 +20,5 @@ async function CreateAppliance({
 }
 
 export default {
-  CreateAppliance
+  CreateAppliance,
 };
