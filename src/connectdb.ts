@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
 
+// Gets rid of deprecation warnings
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
+
 type TInput = {
   db: string;
 };

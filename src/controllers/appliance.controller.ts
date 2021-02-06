@@ -47,8 +47,8 @@ async function UpdateAppliance({
   id,
   powerState,
   deviceName,
-}: UpdateQuery<IAppliance>): Promise<IAppliance | void> {
-  return Appliance.updateOne(
+}: UpdateQuery<IAppliance>): Promise<IAppliance | void | Error> {
+  return Appliance.findOneAndUpdate(
     { id },
     {
       powerState,
@@ -59,7 +59,7 @@ async function UpdateAppliance({
       return data;
     })
     .catch((error: Error) => {
-      console.error(error);
+      return error;
     });
 }
 

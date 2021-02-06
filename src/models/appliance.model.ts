@@ -19,5 +19,5 @@ const ApplianceSchema: Schema = new Schema({
   deviceName: { type: String, required: true },
 });
 
-// Export the model and return your IUser interface
+// Export the model and return IAppliance interface
 export default mongoose.model<IAppliance>("Appliance", ApplianceSchema);
