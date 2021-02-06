@@ -4,7 +4,7 @@ import { CreateQuery, FilterQuery, UpdateQuery } from "mongoose";
 async function CreateAppliance({
   powerState,
   deviceName,
-}: CreateQuery<IAppliance>): Promise<IAppliance | void> {
+}: CreateQuery<IAppliance>): Promise<IAppliance> {
   return Appliance.create({
     powerState,
     deviceName,
@@ -12,8 +12,8 @@ async function CreateAppliance({
     .then((data: IAppliance) => {
       return data;
     })
-    .catch((error: Error) => {
-      console.error(error);
+    .catch((error) => {
+      return error;
     });
 }
 
