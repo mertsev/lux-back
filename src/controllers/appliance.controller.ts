@@ -2,12 +2,10 @@ import Appliance, { IAppliance } from "../models/appliance.model";
 import { CreateQuery, FilterQuery, UpdateQuery } from "mongoose";
 
 async function CreateAppliance({
-  id,
   powerState,
   deviceName,
 }: CreateQuery<IAppliance>): Promise<IAppliance | void> {
   return Appliance.create({
-    id,
     powerState,
     deviceName,
   })
@@ -20,10 +18,10 @@ async function CreateAppliance({
 }
 
 async function ReadAppliance({
-  id,
+  _id,
 }: FilterQuery<IAppliance>): Promise<IAppliance | void> {
   return Appliance.findOne({
-    id,
+    _id,
   })
     .then((data: IAppliance) => {
       return data;
@@ -44,15 +42,18 @@ async function ReadAllAppliance(): Promise<IAppliance[] | void> {
 }
 
 async function UpdateAppliance({
-  id,
+  _id,
   powerState,
   deviceName,
 }: UpdateQuery<IAppliance>): Promise<IAppliance | void | Error> {
   return Appliance.findOneAndUpdate(
-    { id },
+    { _id },
     {
       powerState,
       deviceName,
+    },
+    {
+      new: true,
     }
   )
     .then((data: IAppliance) => {
@@ -64,10 +65,10 @@ async function UpdateAppliance({
 }
 
 async function DeleteAppliance({
-  id,
+  _id,
 }: UpdateQuery<IAppliance>): Promise<IAppliance | void> {
   return Appliance.deleteOne({
-    id,
+    _id,
   })
     .then((data: IAppliance) => {
       return data;

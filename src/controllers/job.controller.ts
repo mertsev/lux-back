@@ -2,14 +2,12 @@ import Job, { IJob } from "../models/Job.model";
 import { CreateQuery, FilterQuery, UpdateQuery } from "mongoose";
 
 async function CreateJob({
-  id,
   deviceId,
   jobName,
   startTime,
   endTime,
 }: CreateQuery<IJob>): Promise<IJob | void> {
   return Job.create({
-    id,
     deviceId,
     jobName,
     startTime,
@@ -23,9 +21,9 @@ async function CreateJob({
     });
 }
 
-async function ReadJob({ id }: FilterQuery<IJob>): Promise<IJob | void> {
+async function ReadJob({ _id }: FilterQuery<IJob>): Promise<IJob | void> {
   return Job.findOne({
-    id,
+    _id,
   })
     .then((data: IJob) => {
       return data;
@@ -35,7 +33,7 @@ async function ReadJob({ id }: FilterQuery<IJob>): Promise<IJob | void> {
     });
 }
 
-async function ReadAllJob(): Promise<IJob[] | void> {
+async function ReadAllJobs(): Promise<IJob[] | void> {
   return Job.find({})
     .then((data: IJob[]) => {
       return data;
@@ -46,32 +44,35 @@ async function ReadAllJob(): Promise<IJob[] | void> {
 }
 
 async function UpdateJob({
-  id,
+  _id,
   deviceId,
   jobName,
   startTime,
   endTime,
-}: UpdateQuery<IJob>): Promise<IJob | void> {
+}: UpdateQuery<IJob>): Promise<IJob | void | Error> {
   return Job.findOneAndUpdate(
-    { id },
+    { _id },
     {
       deviceId,
       jobName,
       startTime,
       endTime,
+    },
+    {
+      new: true,
     }
   )
     .then((data: IJob) => {
       return data;
     })
     .catch((error: Error) => {
-      console.error(error);
+      return error;
     });
 }
 
-async function DeleteJob({ id }: UpdateQuery<IJob>): Promise<IJob | void> {
+async function DeleteJob({ _id }: UpdateQuery<IJob>): Promise<IJob | void> {
   return Job.deleteOne({
-    id,
+    _id,
   })
     .then((data: IJob) => {
       return data;
@@ -85,7 +86,7 @@ async function DeleteJob({ id }: UpdateQuery<IJob>): Promise<IJob | void> {
 export default {
   CreateJob,
   ReadJob,
-  ReadAllJob,
+  ReadAllJobs,
   UpdateJob,
   DeleteJob,
 };

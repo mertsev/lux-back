@@ -22,7 +22,7 @@ export default ({ app }: TRoutesInput): any => {
 
   app.get("/api/appliance/:id", async (req, res) => {
     const appliance = await ApplianceController.ReadAppliance({
-      id: req.params.id,
+      _id: req.params.id,
     });
 
     return res.send({ appliance });
@@ -30,7 +30,7 @@ export default ({ app }: TRoutesInput): any => {
 
   app.put("/api/appliance/:id", async (req, res) => {
     const appliance = await ApplianceController.UpdateAppliance({
-      id: req.params.id,
+      _id: req.params.id,
       powerState: req.body.powerState,
       deviceName: req.body.deviceName,
     });
@@ -41,7 +41,7 @@ export default ({ app }: TRoutesInput): any => {
 
   app.delete("/api/appliance/:id", async (req, res) => {
     const appliance = await ApplianceController.DeleteAppliance({
-      id: req.params.id,
+      _id: req.params.id,
     });
 
     return res.send({ appliance });

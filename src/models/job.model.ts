@@ -1,7 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IJob extends Document {
-  id: string;
   deviceId: string;
   jobName: string;
   startTime: Date;
@@ -9,8 +8,7 @@ export interface IJob extends Document {
 }
 
 const JobSchema: Schema = new Schema({
-  id: { type: String, required: true, unique: true },
-  deviceId: { type: String, required: true },
+  deviceId: { type: Schema.Types.ObjectId, required: true },
   jobName: { type: String, required: true },
   startTime: { type: Date, default: Date.now },
   endTime: { type: Date, default: Date.now },

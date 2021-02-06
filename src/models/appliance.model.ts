@@ -7,14 +7,12 @@ import mongoose, { Schema, Document } from "mongoose";
 // }
 
 export interface IAppliance extends Document {
-  id: string;
   powerState: boolean;
   deviceName: string;
   //   type?: ApplianceType;
 }
 
 const ApplianceSchema: Schema = new Schema({
-  id: { type: String, required: true, unique: true },
   powerState: { type: Boolean, required: true },
   deviceName: { type: String, required: true },
 });

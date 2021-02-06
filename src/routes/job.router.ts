@@ -6,7 +6,6 @@ import JobController from "../controllers/Job.controller";
 export default ({ app }: TRoutesInput): any => {
   app.post("/api/job/add", async (req, res) => {
     const Job = await JobController.CreateJob({
-      id: req.body.id,
       deviceId: req.body.deviceId,
       jobName: req.body.jobName,
       startTime: req.body.startTime,
@@ -17,14 +16,14 @@ export default ({ app }: TRoutesInput): any => {
   });
 
   app.get("/api/Job/", async (req, res) => {
-    const Job = await JobController.ReadAllJob();
+    const Job = await JobController.ReadAllJobs();
 
     return res.send({ Job });
   });
 
   app.get("/api/Job/:id", async (req, res) => {
     const Job = await JobController.ReadJob({
-      id: req.params.id,
+      _id: req.params.id,
     });
 
     return res.send({ Job });
@@ -32,7 +31,7 @@ export default ({ app }: TRoutesInput): any => {
 
   app.put("/api/Job/:id", async (req, res) => {
     const Job = await JobController.UpdateJob({
-      id: req.params.id,
+      _id: req.params.id,
       deviceId: req.body.deviceId,
       jobName: req.body.jobName,
       startTime: req.body.startTime,
@@ -44,7 +43,7 @@ export default ({ app }: TRoutesInput): any => {
 
   app.delete("/api/Job/:id", async (req, res) => {
     const Job = await JobController.DeleteJob({
-      id: req.params.id,
+      _id: req.params.id,
     });
 
     return res.send({ Job });
