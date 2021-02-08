@@ -4,7 +4,7 @@ import JobController from "../controllers/Job.controller";
 /** Route for Job addition */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default ({ app }: TRoutesInput): any => {
-  app.post("/api/job/add", async (req, res) => {
+  app.post("/api/job/", async (req, res) => {
     const Job = await JobController.CreateJob({
       deviceId: req.body.deviceId,
       jobName: req.body.jobName,
