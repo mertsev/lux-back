@@ -2,10 +2,12 @@ import express, { Application } from "express";
 import connect from "./connectdb";
 import routes from "./routes";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 const app: Application = express();
-const PORT = 3000;
+const PORT = 8080;
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 

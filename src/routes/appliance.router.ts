@@ -4,7 +4,7 @@ import ApplianceController from "../controllers/appliance.controller";
 /** Route for appliance addition */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default ({ app }: TRoutesInput): any => {
-  app.post("/api/manage/add", async (req, res) => {
+  app.post("/api/appliance/", async (req, res) => {
     const appliance = await ApplianceController.CreateAppliance({
       id: req.body.id,
       powerState: req.body.powerState,
