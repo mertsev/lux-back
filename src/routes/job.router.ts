@@ -29,6 +29,15 @@ export default ({ app }: TRoutesInput): any => {
     return res.send({ Job });
   });
 
+  app.get("/api/Job/device/:id", async (req, res) => {
+    console.log(req.params.id);
+    const Job = await JobController.ReadAllDeviceJobs({
+      _id: req.params.id,
+    });
+
+    return res.send({ Job });
+  });
+
   app.put("/api/Job/:id", async (req, res) => {
     const Job = await JobController.UpdateJob({
       _id: req.params.id,

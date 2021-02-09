@@ -43,6 +43,18 @@ async function ReadAllJobs(): Promise<IJob[] | void> {
     });
 }
 
+async function ReadAllDeviceJobs({
+  _id,
+}: FilterQuery<IJob>): Promise<IJob[] | void> {
+  return Job.find({ deviceId: _id })
+    .then((data: IJob[]) => {
+      return data;
+    })
+    .catch((error: Error) => {
+      console.error(error);
+    });
+}
+
 async function UpdateJob({
   _id,
   deviceId,
@@ -87,6 +99,7 @@ export default {
   CreateJob,
   ReadJob,
   ReadAllJobs,
+  ReadAllDeviceJobs,
   UpdateJob,
   DeleteJob,
 };
