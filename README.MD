@@ -1,3 +1,5 @@
+Postman collection is included in repo
+
 ## Available Scripts
 
 ### `npm start`

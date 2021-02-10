@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "02c9ea02-6a83-4223-a566-934d57cd6442",
+		"name": "Electrolux task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Appliance",
+			"item": [
+				{
+					"name": "Create appliance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "powerState",
+									"value": "false1",
+									"type": "text"
+								},
+								{
+									"key": "deviceName",
+									"value": "Oven2",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/manage/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"manage",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all appliances",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8080/api/appliance",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"appliance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read appliance by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3000/api/appliance/601e866c8b02834574da0c0d",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"appliance",
+								"601e866c8b02834574da0c0d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update appliance",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "powerState",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "deviceName",
+									"value": "Ove",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/appliance/601e866d8b02834574da0c0e",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"appliance",
+								"601e866d8b02834574da0c0e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Appliance",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/appliance/601e866c8b02834574da0c0d",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"appliance",
+								"601e866c8b02834574da0c0d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job",
+			"item": [
+				{
+					"name": "Create job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "deviceId",
+									"value": "601e866d8b02834574da0c0e",
+									"type": "text"
+								},
+								{
+									"key": "jobName",
+									"value": "Test job2",
+									"type": "text"
+								},
+								{
+									"key": "startTime",
+									"value": "1993-05-23",
+									"type": "text"
+								},
+								{
+									"key": "endTime",
+									"value": "1997-05-23",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/job/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"job",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all jobs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8080/api/job/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"job",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read job by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8080/api/job/601e8b357d846a1804eda387",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"job",
+								"601e8b357d846a1804eda387"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read jobs by deviceId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8080/api/job/device/601e866d8b02834574da0c0e",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"job",
+								"device",
+								"601e866d8b02834574da0c0e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update job",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "deviceId",
+									"value": "601e866d8b02834574da0c0e",
+									"type": "text"
+								},
+								{
+									"key": "jobName",
+									"value": "Updated job",
+									"type": "text"
+								},
+								{
+									"key": "startTime",
+									"value": "2000-04-04",
+									"type": "text"
+								},
+								{
+									"key": "endTime",
+									"value": "2001-04-05",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/job/601e8b357d846a1804eda387",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"job",
+								"601e8b357d846a1804eda387"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/job/601e8b357d846a1804eda387",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"job",
+								"601e8b357d846a1804eda387"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
